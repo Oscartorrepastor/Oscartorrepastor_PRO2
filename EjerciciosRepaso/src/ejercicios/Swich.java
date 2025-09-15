@@ -76,5 +76,31 @@ public class Swich {
 
     public void Ejercicio4(){
         System.out.println("Dime un numero del 1 al 12");
+        int num=scanner.nextInt();
+        switch(num){
+            case 12: case 1: case 2: System.out.println("Invierno"); break;
+            case 3: case 4: case 5: System.out.println("Primavera"); break;
+            case 6: case 7: case 8: System.out.println("Verano"); break;
+            case 9: case 10: case 11: System.out.println("Otoño"); break;
+            default: System.out.println("Mes inválido");
+        }
+    }
+
+    public void Ejercicio5(){
+        String codigo=scanner.next();
+        switch(codigo){
+            case "P001":
+                System.out.println("Producto: Lápiz, Precio: 0,50€");
+                break;
+            case "P002":
+                System.out.println("Producto: Cuaderno, Precio: 2,00€");
+                break;
+            case "P003":
+                System.out.println("Producto: Bolígrafo, Precio: 1,20€");
+                break;
+            default:
+                System.out.println("Código no reconocido");
+        }
+
     }
 }
