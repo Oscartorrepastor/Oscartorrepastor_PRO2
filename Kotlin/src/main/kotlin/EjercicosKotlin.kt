@@ -26,7 +26,14 @@ fun ejercicio2(){
 
 // 3. Escribe un programa que lea un número entero y que indique si es primo o no.
 
+fun ejercicio3(){
+    println("Introduce un numero: ")
+    var num: Int = readln().toInt()
+    for (i in 1 .. num ){
+        num%2==0
+    }
 
+}
 
 // 4. Escribe un programa que lea un número entero y que muestre por pantalla todos los números primos menores o iguales al número leído.
 
