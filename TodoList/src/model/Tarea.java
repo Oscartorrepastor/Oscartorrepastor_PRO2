@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Tarea {
 
     // variable
@@ -7,6 +9,7 @@ public class Tarea {
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] encargados;
+    private ArrayList<Encargos> listaTarea;
 
     // Constructores
 
@@ -18,6 +21,7 @@ public class Tarea {
         this.descripcion = descripcion;
         this.prioritario = prioritario;
         encargados = new Persona[numeroPersonas];
+        listaTarea = new ArrayList<>();
         // completada = false;
     }
 
@@ -25,6 +29,7 @@ public class Tarea {
         this.titulo = titulo;
         this.descripcion = descripcion;
         encargados = new Persona[numeroPersonas];
+        listaTarea = new ArrayList<>();
         // completada = false;
         // prioritario = false
     }
@@ -58,7 +63,87 @@ public class Tarea {
         System.out.printf("La persona con DNI %s no esta en esta tarea %n", dni);
     }
 
-    public void mostraDatos() {
+    // crear metodo que permite agregar un encargo
+    // los encargos deben tener ID unico --> Poner aviso
+
+    public void agregarEncargo(Encargos encargos) {
+        if (estaEncargo(encargos.getId()) != null) {
+            System.out.println("Error en el proceso, no se pudo agregar");
+        } else {
+            for (int i = 0; i < listaTarea.size(); i++) {
+                listaTarea.add(encargos);
+            }
+            System.out.println("Encargo agregado correctamente");
+        }
+    }
+
+    // crear metodo que permite eliminar encargo
+    // para ello se pide id del encargo y se quita de la listar --> Poner aviso
+
+    public void eliminarEncargo(int id) {
+        if (estaEncargo(id) != null) {
+            listaTarea.remove(estaEncargo(id));
+            System.out.println("Encargo eliminado correctamente");
+        } else {
+            System.out.println("No esta en la lista el id especificado");
+        }
+    }
+
+    private Encargos estaEncargo(int id) {
+        for (Encargos encargos : listaTarea) {
+            if (encargos.getId() == id) {
+                return encargos;
+            }
+        }
+        return null;
+    }
+
+    public void buscarEncargoId(int id){
+        if (estaEncargo(id) != null) {
+            estaEncargo(id).mostrarDatos();
+        }
+    }
+
+    // Listar todos los encargas de una tarea
+
+    public void listarEncargos() {
+        for (Encargos encargos : listaTarea) {
+            encargos.mostrarDatos();
+        }
+    }
+
+    // Completar un encargo  -> pasar su variable a true
+
+    public boolean completarEncargo(int id) {
+        if (estaEncargo(id) != null && !estaEncargo(id).isCompleta()) {
+            estaEncargo(id).setCompleta(true);
+            System.out.println("El encargo se completo con exito");
+            return true;
+        }else {
+            System.out.println("No se pudo completar o no esta en la lista");
+            return false;
+        }
+    }
+
+    // Mostrar un encargo que estan completado
+
+    public void listarEncargoCompletado(){
+        for (Encargos encargos : listaTarea) {
+            encargos.mostrarDatos();
+        }
+    }
+
+    // Completar una tarea -> Una tarea quedara completa si todos los encargos estan completos
+
+    public void completarTerea(){
+        for (Encargos encargos : listaTarea){
+            if (!encargos ) {
+
+            }
+        }
+    }
+
+    public void mostarEncagados() {
         int num = 0;
         for (Persona persona : encargados) {
             if (persona == null) {
@@ -71,7 +156,7 @@ public class Tarea {
             System.out.println("No hay responsables asignados");
         } else if (num > 0) {
             System.out.printf("Hay %d huecos disponibles%n", num);
-        } else{
+        } else {
             System.out.println("Todos los responsbles estan hubicados");
         }
     }
@@ -119,5 +204,21 @@ public class Tarea {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public ArrayList<Encargos> getListaTarea() {
+        return listaTarea;
+    }
+
+    public void setListaTarea(ArrayList<Encargos> listaTarea) {
+        this.listaTarea = listaTarea;
+    }
+
+    public Persona[] getEncargados() {
+        return encargados;
+    }
+
+    public void setEncargados(Persona[] encargados) {
+        this.encargados = encargados;
     }
 }

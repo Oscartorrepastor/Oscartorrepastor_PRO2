@@ -20,5 +20,35 @@ public class Encargos {
         this.id = id;
     }
 
+    // un encargo debe tener un responsable
 
+    public void mostrarDatos(){
+        System.out.println("id = " + id);
+        System.out.println("descripcion = " + descripcion);
+        System.out.println("completa = " + completa);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public boolean isCompleta() {
+        return completa;
+    }
+
+    public void setCompleta(boolean completa) {
+        this.completa = completa;
+    }
 }
