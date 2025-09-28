@@ -1,8 +1,14 @@
 package model;
 
-import java.util.ArrayList;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Tarea {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+@Setter
+@Getter
+public abstract class Tarea {
 
     // variable
 
@@ -40,6 +46,7 @@ public class Tarea {
     // solo de podra asignar una persona si hay hueco disponible
     // cada vez que se asigne una persona se debera colocar en el primer hueco disponible
 
+    abstract public void enviarAviso();
 
     public void asignarResponsable(Persona persona) {
         for (int i = 0; i < encargados.length; i++) {
@@ -136,9 +143,10 @@ public class Tarea {
     // Completar una tarea -> Una tarea quedara completa si todos los encargos estan completos
 
     public void completarTerea(){
-        for (Encargos encargos : listaTarea){
-            if (!encargos ) {
-
+        for (Encargos encargo: listaTarea) {
+            if (!encargo.isCompleta()) {
+                System.out.println("No se puede completar la tarea");
+                return;
             }
         }
     }
@@ -174,51 +182,15 @@ public class Tarea {
 
     //getter y setters
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public boolean isPrioritario() {
-        return prioritario;
-    }
-
-    public void setPrioritario(boolean prioritario) {
-        this.prioritario = prioritario;
-    }
-
-    public boolean isCompletada() {
-        return completada;
-    }
-
-    public void setCompletada(boolean completada) {
-        this.completada = completada;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public ArrayList<Encargos> getListaTarea() {
-        return listaTarea;
-    }
-
-    public void setListaTarea(ArrayList<Encargos> listaTarea) {
-        this.listaTarea = listaTarea;
-    }
-
-    public Persona[] getEncargados() {
-        return encargados;
-    }
-
-    public void setEncargados(Persona[] encargados) {
-        this.encargados = encargados;
+    @Override
+    public String toString() {
+        return "Tarea{" +
+                "titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", prioritario=" + prioritario +
+                ", completada=" + completada +
+                ", encargados=" + Arrays.toString(encargados) +
+                ", listaTarea=" + listaTarea +
+                '}';
     }
 }

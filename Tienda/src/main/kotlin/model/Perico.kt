@@ -44,15 +44,21 @@ class Perico(
 
     fun buscarCategoria(categoria: Categoria){
         //Filtrando --> Obtengo varios
+        val filtro: List<Producto?> = almacen.filter {
+            return@filter it?.categoria == categoria
+        }
 
+        println("El numero de elemetos resultantes es: ${filtro.size}")
     }
 
     fun buscarId(id: Int){
         // buscando --> Obtengo un elemento
-        var productoBusqueda: Producto? =  almacen.find {
+        val productoBusqueda: Producto? =  almacen.find {
             return@find it?.id == id // Esto se llama predicado
         }
     }
+
+
 
     fun mostrarAlamcen() {
         var nulos = 0

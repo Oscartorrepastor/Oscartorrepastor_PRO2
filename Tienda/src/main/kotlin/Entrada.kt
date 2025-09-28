@@ -41,9 +41,10 @@ fun main() {
     // 2. Almaces: Sitio donde se guardan los productos tiene tamaño fijo de 6
     // 3. Caja : Se guarda el dinero a la que se venda algo
 
-    var perico: Perico = Perico("Perico")
+    val perico: Perico = Perico("Perico")
 
     perico.almacen = listaProductos
-    perico.mostrarAlamcen()
+    //perico.mostrarAlamcen()
+    perico.buscarCategoria(Categoria.Ropa)
 
 }
