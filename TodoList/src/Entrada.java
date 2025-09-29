@@ -42,12 +42,16 @@ public class Entrada {
         tareas.add(tareaProfesional);
         tareas.add(teareaPersonal);
 
-        for (Tarea tarea1 : tareas){
+        for (Tarea tarea : tareas) {
+            tarea.listarEncargos();
+
+        }
+       /* for (Tarea tarea1 : tareas){
             tarea1.enviarAviso();
             // instanof para preguntar si puede o es intancia de otra clase
             // Pudes tratar interfaces es como una herncia enmascarada
 
-        }
+        }*/
 
         //System.out.printf("Esta tarea tiene %d", tarea.getListaTarea().size());
     }

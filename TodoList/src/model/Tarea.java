@@ -149,6 +149,8 @@ public abstract class Tarea {
                 return;
             }
         }
+        completada = true;
+        System.out.println("tarea completada con exito");
     }
 
     public void mostarEncagados() {
