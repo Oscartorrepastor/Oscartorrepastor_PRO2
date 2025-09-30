@@ -59,30 +59,54 @@ public class Menu {
                 case 2:
                     break;
                 case 3:
+
                     for (Tarea tarea : tareas) {
-                        tarea.listarEncargos();
+                        if (tarea instanceof TareaProfesional) {
+                            System.out.println("Encargos de una tarea profesional:");
+                            tarea.listarEncargos();
+                        } else if (tarea instanceof TeareaPersonal) {
+                            System.out.println("Encargos de una tarea personal:");
+                            tarea.listarEncargos();
+                        } else {
+                            System.out.println("No hay nada en esa opción");
+                        }
                     }
                     break;
                 case 4:
-                    System.out.println("Que ID quieres buscar");
+                    System.out.println("Que ID de encargo quieres completar");
                     int id = scanner.nextInt();
+                    scanner.nextLine();
+                    boolean encontrado = false;
                     for (Tarea tarea : tareas) {
-                        if (id == encargos.getId()) {
-                            tarea.completarTerea();
+                        if (tarea.completarEncargo(id)) {
+                            System.out.println("Encargo " + id + " completado.");
+                            encontrado = true;
+                            break;
                         }
+                    }
+                    if (!encontrado) {
+                        System.out.println("No se encontró ningún encargo con ese ID.");
                     }
                     break;
                 case 5:
                     for (Tarea tarea : tareas) {
                         if (tarea.isCompletada()) {
-                            tarea.toString();
+                            if (tarea instanceof TareaProfesional) {
+                                System.out.println("[Profesional] " + tarea);
+                            } else if (tarea instanceof TeareaPersonal) {
+                                System.out.println("[Personal] " + tarea);
+                            }
                         }
                     }
                     break;
                 case 6:
                     for (Tarea tarea : tareas) {
                         if (!tarea.isCompletada()) {
-                            tarea.toString();
+                            if (tarea instanceof TareaProfesional) {
+                                System.out.println("[Profesional] " + tarea);
+                            } else if (tarea instanceof TeareaPersonal) {
+                                System.out.println("[Personal] " + tarea);
+                            }
                         }
                     }
                     break;
