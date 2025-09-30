@@ -1,12 +1,10 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.util.Date;
 
-@Setter
-@Getter
+
 public class TareaProfesional extends Tarea{
 
     private int presupuesto;
@@ -39,5 +37,21 @@ public class TareaProfesional extends Tarea{
                 "presupuesto=" + presupuesto +
                 ", fechaLimite=" + fechaLimite +
                 '}';
+    }
+
+    public int getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(int presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+
+    public Date getFechaLimite() {
+        return fechaLimite;
+    }
+
+    public void setFechaLimite(Date fechaLimite) {
+        this.fechaLimite = fechaLimite;
     }
 }

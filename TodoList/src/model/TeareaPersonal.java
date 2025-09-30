@@ -1,10 +1,6 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
-@Getter
 public class TeareaPersonal extends Tarea{
 
     private String ubicacion;
@@ -36,5 +32,13 @@ public class TeareaPersonal extends Tarea{
         return super.toString() + "TeareaPersonal{" +
                 "ubicacion='" + ubicacion + '\'' +
                 '}';
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 }

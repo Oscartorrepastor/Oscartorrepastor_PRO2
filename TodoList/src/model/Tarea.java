@@ -1,13 +1,10 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Setter
-@Getter
+
 public abstract class Tarea {
 
     // variable
@@ -194,5 +191,53 @@ public abstract class Tarea {
                 ", encargados=" + Arrays.toString(encargados) +
                 ", listaTarea=" + listaTarea +
                 '}';
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public ArrayList<Encargos> getListaTarea() {
+        return listaTarea;
+    }
+
+    public void setListaTarea(ArrayList<Encargos> listaTarea) {
+        this.listaTarea = listaTarea;
+    }
+
+    public Persona[] getEncargados() {
+        return encargados;
+    }
+
+    public void setEncargados(Persona[] encargados) {
+        this.encargados = encargados;
+    }
+
+    public boolean isCompletada() {
+        return completada;
+    }
+
+    public void setCompletada(boolean completada) {
+        this.completada = completada;
+    }
+
+    public boolean isPrioritario() {
+        return prioritario;
+    }
+
+    public void setPrioritario(boolean prioritario) {
+        this.prioritario = prioritario;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
