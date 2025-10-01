@@ -31,7 +31,7 @@ public class Entrada {
             opcion = scanner.nextInt();
             switch (opcion) {
                 case 1:
-                    plataforma.toString();
+                    plataforma.mostrar();
                     break;
                 case 2:
 
