@@ -42,7 +42,7 @@ public class Plataforma {
     public void filtroEdad(String edad) {
         for (Videojuego item : lista) {
             if (edad.equalsIgnoreCase(videojuego.getClasificacionEdad())) {
-                item.toString();
+                System.out.println(item);
             }
         }
     }
@@ -64,11 +64,11 @@ public class Plataforma {
     public void mostrar() {
         for (Videojuego videojuego1 : lista) {
             if (videojuego1 instanceof Accion) {
-                videojuego1.toString();
+                System.out.println(videojuego1);
             } else if (videojuego1 instanceof Estrategia) {
-                videojuego1.toString();
+                System.out.println(videojuego1);
             } else if (videojuego1 instanceof Rpg) {
-                videojuego1.toString();
+                System.out.println(videojuego1);
             }
         }
     }

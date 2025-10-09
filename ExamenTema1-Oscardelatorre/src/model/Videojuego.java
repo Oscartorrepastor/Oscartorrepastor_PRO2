@@ -25,12 +25,13 @@ public class Videojuego {
 
     @Override
     public String toString() {
-        System.out.println("titulo = " + titulo);
-        System.out.println("desarrollador = " + desarrollador);
-        System.out.println("clasificacionEdad = " + clasificacionEdad);
-        System.out.println("anoLanzamineto = " + anoLanzamineto);
-        System.out.println("precio = " + precio);
-        return super.toString();
+        return "Videojuego{" +
+                "titulo='" + titulo + '\'' +
+                ", desarrollador='" + desarrollador + '\'' +
+                ", clasificacionEdad='" + clasificacionEdad + '\'' +
+                ", anoLanzamineto=" + anoLanzamineto +
+                ", precio=" + precio +
+                '}';
     }
 
     public String getTitulo() {
