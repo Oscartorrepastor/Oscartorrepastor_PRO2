@@ -11,6 +11,14 @@ module com.example.appformulario {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
+    requires lombok;
+    requires java.desktop;
+
     opens com.example.appformulario to javafx.fxml;
     exports com.example.appformulario;
+    exports com.example.appformulario.controler;
+    opens com.example.appformulario.controler to javafx.fxml;
+
+    exports com.example.appformulario.model;
+    opens com.example.appformulario.model to lombok;
 }

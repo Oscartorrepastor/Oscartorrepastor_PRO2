@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AppFormulario-view.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        stage.setTitle("Formulario");
+        stage.setTitle("Formulario APP");
         stage.setScene(scene);
         stage.show();
     }
